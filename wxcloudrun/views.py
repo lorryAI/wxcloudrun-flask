@@ -1,6 +1,8 @@
 from datetime import datetime
 from flask import render_template, request
 from run import app
+import json
+import sqlite3
 from wxcloudrun.dao import delete_counterbyid, query_counterbyid, insert_counter, update_counterbyid
 from wxcloudrun.model import Counters
 from wxcloudrun.response import make_succ_empty_response, make_succ_response, make_err_response
@@ -12,6 +14,35 @@ def index():
     :return: 返回index页面
     """
     return render_template('index.html')
+
+@app.route('/survey')
+def survey():
+    """
+    :return: 返回index页面
+    """
+    questions = get_questions()
+    return render_template('survey.html',questions=questions)
+
+
+def get_questions():
+    with open('questions.json', 'r', encoding='utf-8') as f:
+        questions = json.loads(f.read())
+    return questions
+
+@app.route('/submit', methods=['POST'])
+def submit():
+    answers = {}
+    for key, value in request.form.items():
+        answers[key] = value
+    conn = sqlite3.connect('answers.db')
+    c = conn.cursor()
+    c.execute('''CREATE TABLE IF NOT EXISTS answers
+                 (question text, answer text)''')
+    for key, value in answers.items():
+        c.execute("INSERT INTO answers VALUES (?, ?)", (key, value))
+    conn.commit()
+    conn.close()
+    return '提交成功！'
 
 
 @app.route('/api/count', methods=['POST'])
