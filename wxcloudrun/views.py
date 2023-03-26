@@ -25,7 +25,7 @@ def survey():
 
 
 def get_questions():
-    with open('questions.json', 'r', encoding='utf-8') as f:
+    with open('/questions.json', 'r', encoding='utf-8') as f:
         questions = json.loads(f.read())
     return questions
 
