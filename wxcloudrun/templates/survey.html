@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>问卷调研</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Material+Icons">
+    <link rel="stylesheet" href="https://unpkg.com/mdui/dist/css/mdui.min.css">
+  </head>
+  <body>
+    <header class="mdui-appbar mdui-color-theme">
+      <div class="mdui-toolbar mdui-container">
+        <a href="#" class="mdui-typo-headline">问卷调研</a>
+        <div class="mdui-toolbar-spacer"></div>
+      </div>
+    </header>
+    <div class="mdui-container">
+      <form method="POST" action="/submit">
+        {% for question in questions %}
+          <div class="mdui-card mdui-m-t-2">
+            <div class="mdui-card-header">
+              <div class="mdui-card-header-title">{{ question['question'] }}</div>
+            </div>
+            <div class="mdui-card-content">
+              {% if question['is_multi_check'] %}
+                {% for opt in question['option'] %}
+                  <label class="mdui-checkbox">
+                    <input type="checkbox" name="{{ question['question'] }}" value="{{ opt }}">
+                    <i class="mdui-checkbox-icon"></i>
+                    <span>{{ opt }}</span>
+                  </label>
+                {% endfor %}
+              {% else %}
+                {% for opt in question['option'] %}
+                  <label class="mdui-radio">
+                    <input type="radio" name="{{ question['question'] }}" value="{{ opt }}">
+                    <i class="mdui-radio-icon"></i>
+                    <span>{{ opt }}</span>
+                  </label>
+                {% endfor %}
+              {% endif %}
+            </div>
+          </div>
+        {% endfor %}
+        <div class="mdui-card mdui-m-t-2">
+          <div class="mdui-card-header">
+            <div class="mdui-card-header-title">提交</div>
+          </div>
+          <div class="mdui-card-content">
+            <button class="mdui-btn mdui-color-theme-accent mdui-btn-raised">提交</button>
+          </div>
+        </div>
+      </form>
+    </div>
+    <script src="https://unpkg.com/mdui/dist/js/mdui.min.js"></script>
+  </body>
+</html>
