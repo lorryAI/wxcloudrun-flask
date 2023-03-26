@@ -1,0 +1,81 @@
+[
+    {
+        "question": "您对ChatGPT有多少了解？",
+        "is_multi_check": false,
+        "option": [
+            "我非常熟悉ChatGPT",
+            "我对ChatGPT有一些了解",
+            "我不知道ChatGPT是什么"
+        ]
+    },
+    {
+        "question": "您加入“一起讨论ChatGPT”的群的主要目的是什么？",
+        "is_multi_check": false,
+        "option": [
+            "获得更多关于ChatGPT的知识",
+            "与其他对ChatGPT感兴趣的人交流",
+            "听取其他人的看法和建议",
+            "其他"
+        ]
+    },
+    {
+        "question": "您希望在群里讨论什么方面的ChatGPT？",
+        "is_multi_check": false,
+        "option": [
+            "ChatGPT的技术和原理",
+            "ChatGPT的应用和商业机会",
+            "ChatGPT与其他AI技术的比较",
+            "其他"
+        ]
+    },
+    {
+        "question": "您对ChatGPT在以下哪些领域应用感兴趣？",
+        "is_multi_check": true,
+        "option": [
+            "客户服务",
+            "营销和广告",
+            "教育和培训",
+            "医疗保健",
+            "金融服务",
+            "其他"
+        ]
+    },
+    {
+        "question": "您希望ChatGPT能在以下哪些方面可以帮助您解决问题？",
+        "is_multi_check": true,
+        "option": [
+            "提高工作效率",
+            "提供学习辅导",
+            "完成日常琐事",
+            "增加娱乐体验",
+            "其他"
+        ]
+    },
+    {
+        "question": "在您的日常生活和工作中，哪些任务您希望ChatGPT可以帮助完成？（可多选）",
+        "is_multi_check": true,
+        "option": [
+            "文本编辑与写作",
+            "任务规划与管理",
+            "学习与教育辅导",
+            "娱乐与游戏",
+            "客户服务与支持"
+        ]
+    },
+    {
+        "question": "在使用ChatGPT类产品时，您最关心哪些因素？（可多选）",
+        "is_multi_check": true,
+        "option": [
+            "数据隐私与安全",
+            "用户体验",
+            "功能实用性",
+            "价格",
+            "技术支持与更新"
+        ]
+    },
+    {
+        "question": "您对“一起讨论ChatGPT”的群有哪些建议或意见？（开放式问题）",
+        "is_multi_check": false,
+        "option": []
+    }
+]
